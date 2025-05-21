@@ -20,7 +20,7 @@ public class Corso
 
     public virtual void MetodoSpeciale()
     {
-        Console.WriteLine("Messaggio generico....");
+        Console.WriteLine("Messaggio generico");
     }
 
 }
@@ -47,25 +47,25 @@ public class Programms
             switch (scelta)
             {
                 case 1:
-                    //AggiungiCorsoMusica();
+                    //Corso Musica
                     break;
                 case 2:
-                    //AggiungiCorsoPittura();
+                    //Corso Pittura
                     break;
                 case 3:
-                    //AggiungiCorsoDanza();
+                    //Corso Danza
                     break;
                 case 4:
-                    //AggiungiStudente();
+                    //Studente
                     break;
                 case 5:
-                    //VisualizzaCorsi();
+                    //Corsi
                     break;
                 case 6:
-                    //CercaPerDocente();
+                    // Docente
                     break;
                 case 7:
-                    //EseguiMetodoSpeciale();
+                    //Speciale
                     break;
                 default:
                     Console.WriteLine("Scelta non valida.");
@@ -144,7 +144,7 @@ public class Programms
     {
         Console.Write("Nome docente: ");
         string docente = Console.ReadLine();
-        foreach (var corso in corsi)
+        foreach (string corso in corsi)
         {
             if (corso.Docente == docente)
             {
@@ -157,10 +157,10 @@ public class Programms
     {
         VisualizzaCorsi();
         Console.Write("Indice del corso: ");
-        int index = int.Parse(Console.ReadLine());
-        if (index >= 0 && index < corsi.Count)
+        int indicecorso = int.Parse(Console.ReadLine());
+        if (indicecorso >= 0 && indicecorso < corsi.Count)
         {
-            corsi[index].MetodoSpeciale();
+            corsi[indicecorso].MetodoSpeciale();
         }
         else
         {
