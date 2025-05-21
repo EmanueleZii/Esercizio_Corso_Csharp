@@ -44,7 +44,8 @@ public class Programms
             Console.Write("Scelta: ");
             scelta = int.Parse(Console.ReadLine());
 
-            switch (scelta) {
+            switch (scelta)
+            {
                 case 1:
                     //AggiungiCorsoMusica();
                     break;
@@ -72,4 +73,114 @@ public class Programms
             }
         } while (scelta != 0);
     }
+
+    static void AggiungiCorsoMusica()
+    {
+        CorsoMusica corso = new CorsoMusica();
+        Console.Write("Nome corso: ");
+        corso.NomeCorso = Console.ReadLine();
+        Console.Write("Durata ore: ");
+        corso.DurataOre = int.Parse(Console.ReadLine());
+        Console.Write("Docente: ");
+        corso.Docente = Console.ReadLine();
+        Console.Write("Strumento: ");
+        corso.Strumento = Console.ReadLine();
+        corsi.Add(corso);
+    }
+
+    static void AggiungiCorsoPittura()
+    {
+        CorsoPittura corso = new CorsoPittura();
+        Console.Write("Nome corso: ");
+        corso.NomeCorso = Console.ReadLine();
+        Console.Write("Durata ore: ");
+        corso.DurataOre = int.Parse(Console.ReadLine());
+        Console.Write("Docente: ");
+        corso.Docente = Console.ReadLine();
+        Console.Write("Tecnica: ");
+        corso.Tecnica = Console.ReadLine();
+        corsi.Add(corso);
+    }
+
+    static void AggiungiCorsoDanza()
+    {
+        CorsoDanza corso = new CorsoDanza();
+        Console.Write("Nome corso: ");
+        corso.NomeCorso = Console.ReadLine();
+        Console.Write("Durata ore: ");
+        corso.DurataOre = int.Parse(Console.ReadLine());
+        Console.Write("Docente: ");
+        corso.Docente = Console.ReadLine();
+        Console.Write("Stile: ");
+        corso.Stile = Console.ReadLine();
+        corsi.Add(corso);
+
+            static void AggiungiStudente()
+    {
+        VisualizzaCorsi();
+        Console.Write("Indice del corso: ");
+        int index = int.Parse(Console.ReadLine());
+        Console.Write("Nome studente: ");
+        string nome = Console.ReadLine();
+        if (index >= 0 && index < corsi.Count)
+        {
+            corsi[index].AggiungiStudente(nome);
+        }
+        else
+        {
+            Console.WriteLine("Indice non valido.");
+        }
+    }
+
+    static void VisualizzaCorsi()
+    {
+        for (int i = 0; i < corsi.Count; i++)
+        {
+            Console.WriteLine($"[{i}] {corsi[i].ToString()}");
+        }
+    }
+
+    static void CercaPerDocente()
+    {
+        Console.Write("Nome docente: ");
+        string docente = Console.ReadLine();
+        foreach (var corso in corsi)
+        {
+            if (corso.Docente == docente)
+            {
+                Console.WriteLine(corso.ToString());
+            }
+        }
+    }
+
+    static void EseguiMetodoSpeciale()
+    {
+        VisualizzaCorsi();
+        Console.Write("Indice del corso: ");
+        int index = int.Parse(Console.ReadLine());
+        if (index >= 0 && index < corsi.Count)
+        {
+            corsi[index].MetodoSpeciale();
+        }
+        else
+        {
+            Console.WriteLine("Indice non valido.");
+        }
+    }
 }
+    }
+public class CorsoPittura : Corso
+    {
+        public string Tecnica;
+
+        public override string ToString()
+        {
+            return $"Corso: {NomeCorso}, Durata: {DurataOre} ore, Docente: {Docente}, Studenti: {string.Join(", ", Studenti)}, Tecnica: {Tecnica}";
+        }
+
+        public override void MetodoSpeciale()
+        {
+            Console.WriteLine($"Si lavora su una tela con tecnica: {Tecnica}");
+        }
+    }
+
