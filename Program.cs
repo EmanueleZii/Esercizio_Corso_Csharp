@@ -13,7 +13,7 @@ public class Corso
         Studenti.Add(nomestudente);
     }
 
-    public virtual string ToString()
+    public override string ToString()
     {
         return $"Corso: {NomeCorso}, Durata: {DurataOre} ore, Docente: {Docente}, Studenti: {string.Join(", ", Studenti)}";
     }
@@ -22,18 +22,63 @@ public class Corso
     {
         Console.WriteLine("Messaggio generico");
     }
+}
 
+public class CorsoMusica : Corso
+{
+    public string Strumento;
+
+    public override string ToString()
+    {
+        return $"Corso: {NomeCorso}, Durata: {DurataOre} ore, Docente: {Docente}, Studenti: {string.Join(", ", Studenti)}, Strumento: {Strumento}";
+    }
+
+    public override void MetodoSpeciale()
+    {
+        Console.WriteLine($"Si tiene una prova pratica dello strumento: {Strumento}");
+    }
+}
+
+public class CorsoPittura : Corso
+{
+    public string Tecnica;
+
+    public override string ToString()
+    {
+        return $"Corso: {NomeCorso}, Durata: {DurataOre} ore, Docente: {Docente}, Studenti: {string.Join(", ", Studenti)}, Tecnica: {Tecnica}";
+    }
+
+    public override void MetodoSpeciale()
+    {
+        Console.WriteLine($"Si lavora su una tela con tecnica: {Tecnica}");
+    }
+}
+
+public class CorsoDanza : Corso
+{
+    public string Stile;
+
+    public override string ToString()
+    {
+        return $"Corso: {NomeCorso}, Durata: {DurataOre} ore, Docente: {Docente}, Studenti: {string.Join(", ", Studenti)}, Stile: {Stile}";
+    }
+
+    public override void MetodoSpeciale()
+    {
+        Console.WriteLine($"Questo è un corso di danza di stile {Stile}. Muoviti a ritmo!");
+    }
 }
 
 public class Programms
 {
     static List<Corso> corsi = new List<Corso>();
+
     public static void Main()
     {
-        int scelta = 0;
+        int scelta;
         do
         {
-            Console.WriteLine("[1] Aggiungi un corso di Musica");
+            Console.WriteLine("\n[1] Aggiungi un corso di Musica");
             Console.WriteLine("[2] Aggiungi un corso di Pittura");
             Console.WriteLine("[3] Aggiungi un corso di Danza");
             Console.WriteLine("[4] Aggiungi studente a un corso");
@@ -47,25 +92,28 @@ public class Programms
             switch (scelta)
             {
                 case 1:
-                    //Corso Musica
+                    AggiungiCorsoMusica();
                     break;
                 case 2:
-                    //Corso Pittura
+                    AggiungiCorsoPittura();
                     break;
                 case 3:
-                    //Corso Danza
+                    AggiungiCorsoDanza();
                     break;
                 case 4:
-                    //Studente
+                    AggiungiStudente();
                     break;
                 case 5:
-                    //Corsi
+                    VisualizzaCorsi();
                     break;
                 case 6:
-                    // Docente
+                    CercaPerDocente();
                     break;
                 case 7:
-                    //Speciale
+                    EseguiMetodoSpeciale();
+                    break;
+                case 0:
+                    Console.WriteLine("Uscita...");
                     break;
                 default:
                     Console.WriteLine("Scelta non valida.");
@@ -114,17 +162,18 @@ public class Programms
         Console.Write("Stile: ");
         corso.Stile = Console.ReadLine();
         corsi.Add(corso);
+    }
 
-            static void AggiungiStudente()
+    static void AggiungiStudente()
     {
         VisualizzaCorsi();
         Console.Write("Indice del corso: ");
-        int index = int.Parse(Console.ReadLine());
+        int indice = int.Parse(Console.ReadLine());
         Console.Write("Nome studente: ");
         string nome = Console.ReadLine();
-        if (index >= 0 && index < corsi.Count)
+        if (indice >= 0 && indice < corsi.Count)
         {
-            corsi[index].AggiungiStudente(nome);
+            corsi[indice].AggiungiStudente(nome);
         }
         else
         {
@@ -136,7 +185,7 @@ public class Programms
     {
         for (int i = 0; i < corsi.Count; i++)
         {
-            Console.WriteLine($"[{i}] {corsi[i].ToString()}");
+            Console.WriteLine($"[{i}] {corsi[i]}");
         }
     }
 
@@ -144,11 +193,11 @@ public class Programms
     {
         Console.Write("Nome docente: ");
         string docente = Console.ReadLine();
-        foreach (string corso in corsi)
+        foreach (Corso corso in corsi)
         {
             if (corso.Docente == docente)
             {
-                Console.WriteLine(corso.ToString());
+                Console.WriteLine(corso);
             }
         }
     }
@@ -168,19 +217,4 @@ public class Programms
         }
     }
 }
-    }
-public class CorsoPittura : Corso
-    {
-        public string Tecnica;
-
-        public override string ToString()
-        {
-            return $"Corso: {NomeCorso}, Durata: {DurataOre} ore, Docente: {Docente}, Studenti: {string.Join(", ", Studenti)}, Tecnica: {Tecnica}";
-        }
-
-        public override void MetodoSpeciale()
-        {
-            Console.WriteLine($"Si lavora su una tela con tecnica: {Tecnica}");
-        }
-    }
 
