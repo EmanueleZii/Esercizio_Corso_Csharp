@@ -9,6 +9,6 @@
 ⸻<br>
 
 <lu>🧠 Obiettivi del Progetto</ul>
-	<li>	✅ Obiettivo 1 (es. “Creare un’applicazione per la gestione dei corsi”)</li>
-	<li>	✅ Obiettivo 3 (es. “Collaborare efficacemente in team usando Github Desktop”) </li>
+	<li>	✅ Obiettivo 1 Creare un’applicazione per la gestione dei corsi</li>
+	<li>	✅ Obiettivo 2 Collaborare efficacemente in team usando Github Desktop</li>
 
