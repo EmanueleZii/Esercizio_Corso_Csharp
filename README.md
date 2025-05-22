@@ -1,14 +1,14 @@
 <h1>Progetto C-sharp Di Gruppo </h1>
 
-🛠️ Tecnologie Utilizzate
-	•	Linguaggio: C#
-	•	Framework: .NET 6 / .NET Core / .NET Framework (scegli quello corretto)
-	•	IDE: Visual Studio 2022 / Rider / VS Code
-	•	Eventuali librerie: Newtonsoft.Json, Entity Framework, System.Net.Http, ecc.
+<ul>🛠️ Tecnologie Utilizzate</ul>
+	<li>	Linguaggio: C# </li>
+	<li>    Framework: .NET Core / .NET Framework </li>
+	<li>	IDE: VS Code</li>
+	
 
-⸻
+⸻<br>
 
-🧠 Obiettivi del Progetto
-	•	✅ Obiettivo 1 (es. “Creare un’applicazione per la gestione dei corsi”)
-	•	✅ Obiettivo 3 (es. “Collaborare efficacemente in team usando Git”)
+<lu>🧠 Obiettivi del Progetto</ul>
+	<li>	✅ Obiettivo 1 (es. “Creare un’applicazione per la gestione dei corsi”)</li>
+	<li>	✅ Obiettivo 3 (es. “Collaborare efficacemente in team usando Git”) </li>
 
